@@ -46,9 +46,9 @@ class FeatureCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              // Icon/Image header with background pattern
+              // Icon header with background pattern
               Container(
-                height: isMobile ? 100 : 120,
+                height: isMobile ? 80 : 100,
                 padding: EdgeInsets.all(isMobile ? 16 : 20),
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
@@ -66,18 +66,6 @@ class FeatureCard extends StatelessWidget {
                 ),
                 child: Stack(
                   children: [
-                    // Background Image (if provided)
-                    if (imageUrl != null)
-                      Positioned.fill(
-                        child: Opacity(
-                          opacity: 0.2,
-                          child: Image.network(
-                            imageUrl!,
-                            fit: BoxFit.cover,
-                            errorBuilder: (context, error, stackTrace) => const SizedBox(),
-                          ),
-                        ),
-                      ),
                     // Icon
                     Align(
                       alignment: Alignment.centerLeft,
@@ -142,19 +130,17 @@ class FeatureCard extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: isMobile ? 8 : 10),
-                      Expanded(
-                        child: Text(
-                          description,
-                          style: TextStyle(
-                            fontSize: isMobile ? 12 : 13,
-                            color: AppTheme.textSecondary,
-                            height: 1.5,
-                          ),
-                          maxLines: 3,
-                          overflow: TextOverflow.ellipsis,
+                      Text(
+                        description,
+                        style: TextStyle(
+                          fontSize: isMobile ? 12 : 13,
+                          color: AppTheme.textSecondary,
+                          height: 1.5,
                         ),
+                        maxLines: 3,
+                        overflow: TextOverflow.ellipsis,
                       ),
-                      const SizedBox(height: 8),
+                      const SizedBox(height: 12),
                       // Action hint
                       Row(
                         children: [
@@ -178,6 +164,22 @@ class FeatureCard extends StatelessWidget {
                   ),
                 ),
               ),
+
+              // Full-width image at bottom (if provided)
+              if (imageUrl != null)
+                ClipRRect(
+                  borderRadius: const BorderRadius.only(
+                    bottomLeft: Radius.circular(16),
+                    bottomRight: Radius.circular(16),
+                  ),
+                  child: Image.network(
+                    imageUrl!,
+                    height: isMobile ? 120 : 140,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) => const SizedBox(),
+                  ),
+                ),
             ],
           ),
         ),
