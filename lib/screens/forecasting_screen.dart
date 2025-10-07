@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:fl_chart/fl_chart.dart';
 import '../services/openai_service.dart';
-import '../core/theme/app_theme.dart';
+import '../config/app_theme.dart';
 
 class ForecastingScreen extends StatefulWidget {
   const ForecastingScreen({super.key});

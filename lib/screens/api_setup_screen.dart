@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../services/openai_service.dart';
-import '../core/theme/app_theme.dart';
+import '../config/app_theme.dart';
 
 class ApiSetupScreen extends StatefulWidget {
   const ApiSetupScreen({super.key});

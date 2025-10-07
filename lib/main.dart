@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'core/theme/app_theme.dart';
+import 'config/app_theme.dart';
 import 'services/openai_service.dart';
-import 'screens/api_setup_screen.dart';
-import 'screens/home_screen.dart';
+import 'routes/app_routes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,10 +24,7 @@ class MyApp extends StatelessWidget {
         theme: AppTheme.darkTheme,
         debugShowCheckedModeBanner: false,
         home: const AppInitializer(),
-        routes: {
-          '/home': (context) => const HomeScreen(),
-          '/setup': (context) => const ApiSetupScreen(),
-        },
+        routes: AppRoutes.routes,
       ),
     );
   }

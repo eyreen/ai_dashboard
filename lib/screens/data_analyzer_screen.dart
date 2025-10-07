@@ -4,7 +4,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:csv/csv.dart';
 import 'dart:convert';
 import '../services/openai_service.dart';
-import '../core/theme/app_theme.dart';
+import '../config/app_theme.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
 class DataAnalyzerScreen extends StatefulWidget {
